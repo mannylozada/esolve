@@ -1,0 +1,165 @@
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin-top: 0px;
+  background-color: #aaaaaa;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+#MainBody {
+  min-width: 1000px;
+  min-height: 1000px;
+  background-color: #ffffff;
+  margin-left: 30px;
+  margin-right: 40px;
+}
+
+#Header {
+  width: 100%;
+  height: 50px;
+  background-color: #0000c0;
+  color: #ffffff;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  /*text-transform: uppercase;*/
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#MainMenu {
+  position: absolute;
+
+  top: 16px;
+  right: 150px;
+  font-size: medium;
+
+}
+
+#BigImageContainer {
+  position: relative;
+  width: 950px;
+  height: 400px;
+  left: 50px;
+  padding-left: 5px;
+  background-position: 50px;
+  background-image: url('/assets/ChildrensHands.jpg');
+}
+
+#WelcomeMessage {
+  position: relative;
+  color: #ffffff;
+  font-size: x-large;
+  font-weight: bolder;
+  top: 300px;
+  margin-left: 50px;
+}
+
+#GradientBox {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 0px;
+  width: 950px;
+  height: 500px;
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.20) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.20))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.20) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.20) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.20) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.20) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.TextColumn {
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+#LeftColumn {
+  position: relative;
+  margin-left: 30px;
+  margin-top: 0px;
+}
+
+#RightColumn {
+  position: relative;
+  top: -422px;
+  left: 500px;
+}
+
+.SmallBox {
+  height: 60px;
+  width: 60px;
+  border: solid;
+  border-width: thin;
+  border-color: black;
+  padding: 30px;
+  font-size: xx-large;
+}
+
+#LYText {
+  position: absolute;
+  top: 0;
+  left: 160px;
+  width: 250px;
+}
+
+#LF {
+  position: relative;
+  top: 60px;
+}
+
+#LFText {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  width: 260px;
+}
+
+#Titles {
+  width: 950px;
+  height: 40px;
+}
+
+#StudentsTitle {
+  position: relative;
+  left: 30px;
+}
+
+#ChartsTitle {
+  position: relative;
+  top: -50px;
+  left: 500px;
+}

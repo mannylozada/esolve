@@ -7,8 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div id="MainBody">
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to "ESOLve", '#', id: "logo" %>
+        <nav>
+          <ul class="nav pull-right">
+            <li><%= link_to "Home", '#' %></li>
+            <li><%= link_to "Students", '#' %></li>
+            <li><%= link_to "Charts/Reports", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+  <%= yield %>
+  </div>
+  <div id="Copyright">&copy 2013 ESOLve</div>
+</div>
 
 </body>
 </html>
