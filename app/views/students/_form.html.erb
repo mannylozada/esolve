@@ -1,0 +1,93 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :student_number %><br />
+    <%= f.text_field :student_number %>
+  </div>
+  <div class="field">
+    <%= f.label :grade %><br />
+    <%= f.number_field :grade %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= f.collection_select :language_id, @languages, :id, :language_name %>
+  </div>
+  <div class="field">
+    <%= f.label :entry_date %><br />
+    <%= f.date_select :entry_date %>
+  </div>
+  <div class="field">
+    <%= f.label :ese_code %><br />
+    <%= f.text_field :ese_code %>
+  </div>
+  <div class="field">
+    <%= f.label :fcat_reading %><br />
+    <%= f.number_field :fcat_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :fcat_math %><br />
+    <%= f.number_field :fcat_math %>
+  </div>
+  <div class="field">
+    <%= f.label :cella_listening_speaking %><br />
+    <%= f.number_field :cella_listening_speaking %>
+  </div>
+  <div class="field">
+    <%= f.label :cella_reading %><br />
+    <%= f.number_field :cella_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :cella_writing %><br />
+    <%= f.number_field :cella_writing %>
+  </div>
+  <div class="field">
+    <%= f.label :student_with_dissability %><br />
+    <%= f.check_box :student_with_dissability %>
+  </div>
+  <div class="field">
+    <%= f.label :economically_disadvantaged %><br />
+    <%= f.check_box :economically_disadvantaged %>
+  </div>
+  <div class="field">
+    <%= f.label :white %><br />
+    <%= f.check_box :white %>
+  </div>
+  <div class="field">
+    <%= f.label :hispanic %><br />
+    <%= f.check_box :hispanic %>
+  </div>
+  <div class="field">
+    <%= f.label :black %><br />
+    <%= f.check_box :black %>
+  </div>
+  <div class="field">
+    <%= f.label :asian %><br />
+    <%= f.check_box :asian %>
+  </div>
+  <div class="field">
+    <%= f.label :multiracial %><br />
+    <%= f.check_box :multiracial %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

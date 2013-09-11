@@ -5,27 +5,21 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
+<%= render 'layouts/header' %>
 <div id="MainBody">
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container">
-        <%= link_to "ESOLve", '#', id: "logo" %>
-        <nav>
-          <ul class="nav pull-right">
-            <li><%= link_to "Home", '#' %></li>
-            <li><%= link_to "Students", '#' %></li>
-            <li><%= link_to "Charts/Reports", '#' %></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
   <div class="container">
-  <%= yield %>
+    <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
   </div>
-  <div id="Copyright">&copy 2013 ESOLve</div>
 </div>
 
 </body>

@@ -1,4 +1,9 @@
 Esolve::Application.routes.draw do
+  root :to => 'StaticPages#home'
+  resources :languages
+  resources :students
+
+
   get "static_pages/home"
 
   # The priority is based upon order of creation:

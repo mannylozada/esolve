@@ -1,0 +1,59 @@
+<br/>
+<bt/>
+<br/>
+<h1>Student List</h1>
+<table border='1'>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>Student</th>
+    <th>Student number</th>
+    <th>Grade</th>
+    <th>Language</th>
+    <th>Entry date</th>
+    <th>ESE Code</th>
+    <th>FCAT Reading</th>
+    <th>FCAT Math</th>
+    <th>CELLA Listening/speaking</th>
+    <th>CELLA Reading</th>
+    <th>CELLA Writing</th>
+    <th>SD</th>
+    <th>ED</th>
+    <th>W</th>
+    <th>H</th>
+    <th>B</th>
+    <th>A</th>
+    <th>M</th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student) %></td>
+    <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= student.lastname + ', ' + student.firstname %></td>
+    <td><%= student.student_number %></td>
+    <td><%= student.grade %></td>
+    <td><%= student.language.language_name %></td>
+    <td><%= student.entry_date %></td>
+    <td><%= student.ese_code %></td>
+    <td><%= student.fcat_reading %></td>
+    <td><%= student.fcat_math %></td>
+    <td><%= student.cella_listening_speaking %></td>
+    <td><%= student.cella_reading %></td>
+    <td><%= student.cella_writing %></td>
+    <td><%= student.student_with_dissability %></td>
+    <td><%= student.economically_disadvantaged %></td>
+    <td><%= student.white %></td>
+    <td><%= student.hispanic %></td>
+    <td><%= student.black %></td>
+    <td><%= student.asian %></td>
+    <td><%= student.multiracial %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>

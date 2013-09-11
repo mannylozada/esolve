@@ -25,19 +25,37 @@ textarea {
   margin-bottom: 10px;
 }
 
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
 #MainBody {
   min-width: 1000px;
   min-height: 1000px;
   background-color: #ffffff;
-  margin-left: 30px;
-  margin-right: 40px;
-}
-
-#Header {
-  width: 100%;
-  height: 50px;
-  background-color: #0000c0;
-  color: #ffffff;
 }
 
 #logo {
@@ -57,21 +75,10 @@ textarea {
   text-decoration: none;
 }
 
-#MainMenu {
-  position: absolute;
-
-  top: 16px;
-  right: 150px;
-  font-size: medium;
-
-}
-
 #BigImageContainer {
   position: relative;
   width: 950px;
   height: 400px;
-  left: 50px;
-  padding-left: 5px;
   background-position: 50px;
   background-image: url('/assets/ChildrensHands.jpg');
 }
@@ -86,8 +93,6 @@ textarea {
 }
 
 #GradientBox {
-  margin-left: 50px;
-  margin-right: 50px;
   margin-top: 0px;
   width: 950px;
   height: 500px;
@@ -160,6 +165,37 @@ textarea {
 
 #ChartsTitle {
   position: relative;
-  top: -50px;
+  top: -34px;
   left: 500px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
 }

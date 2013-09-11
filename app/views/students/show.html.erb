@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @student.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @student.lastname %>
+</p>
+
+<p>
+  <b>Student number:</b>
+  <%= @student.student_number %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%= @student.grade %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @student.language.language_name %>
+</p>
+<p>
+  <b>Entry date:</b>
+  <%= @student.entry_date %>
+</p>
+
+<p>
+  <b>Ese code:</b>
+  <%= @student.ese_code %>
+</p>
+
+<p>
+  <b>Fcat reading:</b>
+  <%= @student.fcat_reading %>
+</p>
+
+<p>
+  <b>Fcat math:</b>
+  <%= @student.fcat_math %>
+</p>
+
+<p>
+  <b>Cella listening speaking:</b>
+  <%= @student.cella_listening_speaking %>
+</p>
+
+<p>
+  <b>Cella reading:</b>
+  <%= @student.cella_reading %>
+</p>
+
+<p>
+  <b>Cella writing:</b>
+  <%= @student.cella_writing %>
+</p>
+
+<p>
+  <b>Student with dissability:</b>
+  <%= @student.student_with_dissability %>
+</p>
+
+<p>
+  <b>Economically disadvantaged:</b>
+  <%= @student.economically_disadvantaged %>
+</p>
+
+<p>
+  <b>White:</b>
+  <%= @student.white %>
+</p>
+
+<p>
+  <b>Hispanic:</b>
+  <%= @student.hispanic %>
+</p>
+
+<p>
+  <b>Black:</b>
+  <%= @student.black %>
+</p>
+
+<p>
+  <b>Asian:</b>
+  <%= @student.asian %>
+</p>
+
+<p>
+  <b>Multiracial:</b>
+  <%= @student.multiracial %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
