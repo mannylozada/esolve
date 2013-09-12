@@ -1,23 +1,35 @@
 <br/>
 <bt/>
 <br/>
-<h1>Student List</h1>
+<h3>Students</h3>
+<br/>
+
+<%= link_to 'New Student', new_student_path %>&nbsp;
+<%= link_to 'Languages', languages_path %>
+<br/>
+<br/>
 <table border='1'>
-  <tr>
+  <tr style="background-color: #3399ff; text-align: center;">
+    <th colspan="9"></th>
+    <th colspan="3">FCAT</th>
+    <th colspan="2">CELLA</th>
+    <th colspan="8"></th>
+  </tr>
+  <tr style="background-color: #3399ff;">
     <th></th>
     <th></th>
     <th></th>
-    <th>Student</th>
+    <th style="width: 200px;">Student</th>
     <th>Student number</th>
     <th>Grade</th>
     <th>Language</th>
-    <th>Entry date</th>
+    <th style="width: 150px;">Entry date</th>
     <th>ESE Code</th>
-    <th>FCAT Reading</th>
-    <th>FCAT Math</th>
-    <th>CELLA Listening/speaking</th>
-    <th>CELLA Reading</th>
-    <th>CELLA Writing</th>
+    <th>Reading</th>
+    <th>Math</th>
+    <th>L/S</th>
+    <th>Reading</th>
+    <th>Writing</th>
     <th>SD</th>
     <th>ED</th>
     <th>W</th>
@@ -29,31 +41,32 @@
 
 <% @students.each do |student| %>
   <tr>
-    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Select', student %></td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
-    <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Del', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><%= student.lastname + ', ' + student.firstname %></td>
-    <td><%= student.student_number %></td>
-    <td><%= student.grade %></td>
-    <td><%= student.language.language_name %></td>
-    <td><%= student.entry_date %></td>
-    <td><%= student.ese_code %></td>
-    <td><%= student.fcat_reading %></td>
-    <td><%= student.fcat_math %></td>
-    <td><%= student.cella_listening_speaking %></td>
-    <td><%= student.cella_reading %></td>
-    <td><%= student.cella_writing %></td>
-    <td><%= student.student_with_dissability %></td>
-    <td><%= student.economically_disadvantaged %></td>
-    <td><%= student.white %></td>
-    <td><%= student.hispanic %></td>
-    <td><%= student.black %></td>
-    <td><%= student.asian %></td>
-    <td><%= student.multiracial %></td>
+    <td style="text-align: center"><%= student.student_number %></td>
+    <td style="text-align: center"><%= student.grade %></td>
+    <td style="text-align: center"><%= student.language.language_name %></td>
+    <td style="text-align: center"><%= student.entry_date.to_formatted_s(:long) %></td>
+    <td style="text-align: center"><%= student.ese_code %></td>
+    <td style="text-align: center"><%= student.fcat_reading %></td>
+    <td style="text-align: center"><%= student.fcat_math %></td>
+    <td style="text-align: center"><%= student.cella_listening_speaking %></td>
+    <td style="text-align: center"><%= student.cella_reading %></td>
+    <td style="text-align: center"><%= student.cella_writing %></td>
+    <td style="text-align: center"><%= label_tag(student.student_with_dissability, 'x') %></td>
+    <td style="text-align: center"><%= label_tag(student.economically_disadvantaged, 'x') %></td>
+    <td style="text-align: center"><%= label_tag(student.white, 'x') %></td>
+    <td style="text-align: center"><%= label_tag(student.hispanic, 'x') %></td>
+    <td style="text-align: center"><%= label_tag(student.black, 'x') %></td>
+    <td style="text-align: center"><%= label_tag(student.asian, 'x') %></td>
+    <td style="text-align: center"><%= label_tag(student.multiracial, 'x') %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Student', new_student_path %>
+<%= link_to 'New Student', new_student_path %>&nbsp;
+<%= link_to 'Languages', languages_path %>

@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @student = Student.find(params[:id])
+    @languages = Language.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,7 @@ class StudentsController < ApplicationController
   # GET /students/new.json
   def new
     @student = Student.new
+    @languages = Language.all
 
     respond_to do |format|
       format.html # new.html.erb
