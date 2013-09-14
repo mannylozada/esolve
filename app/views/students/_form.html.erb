@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :grade %><br />
-    <%= f.number_field :grade %>
+    <%= f.collection_select :grade_id, @grades, :id, :grade_name %>
   </div>
   <div class="field">
     <%= f.label :language %><br />

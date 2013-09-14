@@ -2,10 +2,12 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = params[:grade_id].blank? ? Student.all : Student.find_all_by_grade_id(params[:grade_id])
+    @students = params[:esol_group_id].blank? ? @students : Student.find_all_by_esol_group_id(params[:esol_group_id])
 
     respond_to do |format|
       format.html # index.html.erb
+      format.xml { render xml: @students }
       format.json { render json: @students }
     end
   end
@@ -14,10 +16,13 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @student = Student.find(params[:id])
+    @grades = Grade.all
     @languages = Language.all
+    @esol_groups = EsolGroup.all
 
     respond_to do |format|
       format.html # show.html.erb
+      format.xml { render xml: @student }
       format.json { render json: @student }
     end
   end
@@ -26,6 +31,7 @@ class StudentsController < ApplicationController
   # GET /students/new.json
   def new
     @student = Student.new
+    @grades = Grade.all
     @languages = Language.all
 
     respond_to do |format|
@@ -37,6 +43,7 @@ class StudentsController < ApplicationController
   # GET /students/1/edit
   def edit
     @student = Student.find(params[:id])
+    @grades = Grade.all
     @languages = Language.all
   end
 

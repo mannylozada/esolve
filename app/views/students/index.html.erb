@@ -3,6 +3,15 @@
 <br/>
 <h3>Students</h3>
 <br/>
+<form class="filter_form" method="get">
+  <% @options = Grade.all.map { |a| [ a.grade_name, a.id ] } %>
+  <%= select_tag "grade_id", options_for_select(@options, params["grade_id"]), :onchange => "this.form.submit();", :prompt => "All Grades" %>
+  <br/>
+  <% @esol_options = EsolGroup.all.map {|e| [e.group_name, e.id] } %>
+  <%= select_tag "esol_group_id", options_for_select(@esol_options, params["esol_group_id"]), :onchange => "this.form.submit();", :prompt => "All ESOL Groups" %>
+</form>
+<br/>
+<br/>
 
 <%= link_to 'New Student', new_student_path %>&nbsp;
 <%= link_to 'Languages', languages_path %>
@@ -11,8 +20,9 @@
 <table border='1'>
   <tr style="background-color: #3399ff; text-align: center;">
     <th colspan="9"></th>
-    <th colspan="3">FCAT</th>
-    <th colspan="2">CELLA</th>
+    <th>ESE</th>
+    <th colspan="2">FCAT</th>
+    <th colspan="3">CELLA</th>
     <th colspan="8"></th>
   </tr>
   <tr style="background-color: #3399ff;">
@@ -22,9 +32,10 @@
     <th style="width: 200px;">Student</th>
     <th>Student number</th>
     <th>Grade</th>
+    <th>Group</th>
     <th>Language</th>
     <th style="width: 150px;">Entry date</th>
-    <th>ESE Code</th>
+    <th>Code</th>
     <th>Reading</th>
     <th>Math</th>
     <th>L/S</th>
@@ -46,7 +57,8 @@
     <td><%= link_to 'Del', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><%= student.lastname + ', ' + student.firstname %></td>
     <td style="text-align: center"><%= student.student_number %></td>
-    <td style="text-align: center"><%= student.grade %></td>
+    <td style="text-align: center"><%= student.grade.grade_name %></td>
+    <td style="text-align: center"><%= student.esol_group.group_name %></td>
     <td style="text-align: center"><%= student.language.language_name %></td>
     <td style="text-align: center"><%= student.entry_date.to_formatted_s(:long) %></td>
     <td style="text-align: center"><%= student.ese_code %></td>
@@ -55,13 +67,13 @@
     <td style="text-align: center"><%= student.cella_listening_speaking %></td>
     <td style="text-align: center"><%= student.cella_reading %></td>
     <td style="text-align: center"><%= student.cella_writing %></td>
-    <td style="text-align: center"><%= label_tag(student.student_with_dissability, 'x') %></td>
-    <td style="text-align: center"><%= label_tag(student.economically_disadvantaged, 'x') %></td>
-    <td style="text-align: center"><%= label_tag(student.white, 'x') %></td>
-    <td style="text-align: center"><%= label_tag(student.hispanic, 'x') %></td>
-    <td style="text-align: center"><%= label_tag(student.black, 'x') %></td>
-    <td style="text-align: center"><%= label_tag(student.asian, 'x') %></td>
-    <td style="text-align: center"><%= label_tag(student.multiracial, 'x') %></td>
+    <td style="text-align: center"><%= student.student_with_dissability ? "x" : "" %></td>
+    <td style="text-align: center"><%= student.economically_disadvantaged ? "x" : "" %></td>
+    <td style="text-align: center"><%= student.white ? "x" : "" %></td>
+    <td style="text-align: center"><%= student.hispanic ? "x" : "" %></td>
+    <td style="text-align: center"><%= student.black ? "x" : "" %></td>
+    <td style="text-align: center"><%= student.asian ? "x" : "" %></td>
+    <td style="text-align: center"><%= student.multiracial ? "x" : "" %></td>
   </tr>
 <% end %>
 </table>

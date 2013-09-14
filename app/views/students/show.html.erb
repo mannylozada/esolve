@@ -1,23 +1,21 @@
+<br/>
+<br/>
+<br/>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Firstname:</b>
-  <%= @student.firstname %>
+  <b>Name:</b>
+  <%= @student.lastname + ', ' + @student.firstname %>
 </p>
 
 <p>
-  <b>Lastname:</b>
-  <%= @student.lastname %>
-</p>
-
-<p>
-  <b>Student number:</b>
+  <b>Number:</b>
   <%= @student.student_number %>
 </p>
 
 <p>
   <b>Grade:</b>
-  <%= @student.grade %>
+  <%= @student.grade %>th
 </p>
 
 <p>
@@ -30,32 +28,32 @@
 </p>
 
 <p>
-  <b>Ese code:</b>
+  <b>ESE Code:</b>
   <%= @student.ese_code %>
 </p>
 
 <p>
-  <b>Fcat reading:</b>
+  <b>FCAT Reading:</b>
   <%= @student.fcat_reading %>
 </p>
 
 <p>
-  <b>Fcat math:</b>
+  <b>FCAT Math:</b>
   <%= @student.fcat_math %>
 </p>
 
 <p>
-  <b>Cella listening speaking:</b>
+  <b>CELLA Listening/Speaking:</b>
   <%= @student.cella_listening_speaking %>
 </p>
 
 <p>
-  <b>Cella reading:</b>
+  <b>CELLA Reading:</b>
   <%= @student.cella_reading %>
 </p>
 
 <p>
-  <b>Cella writing:</b>
+  <b>CELLA Writing:</b>
   <%= @student.cella_writing %>
 </p>
 

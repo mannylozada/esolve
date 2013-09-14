@@ -1,10 +1,20 @@
 Esolve::Application.routes.draw do
+  resources :grades
+
+
+  resources :esol_groups
+
+
   root :to => 'StaticPages#home'
   resources :languages
   resources :students
 
 
   get "static_pages/home"
+
+  namespace :api do
+    resources :students, :defaults => { :format => 'xml' }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

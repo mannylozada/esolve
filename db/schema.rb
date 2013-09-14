@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130908210941) do
+ActiveRecord::Schema.define(:version => 20130913190353) do
+
+  create_table "esol_groups", :force => true do |t|
+    t.string   "group_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "grades", :force => true do |t|
+    t.string   "grade_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "languages", :force => true do |t|
     t.string   "language_name"
@@ -38,9 +50,11 @@ ActiveRecord::Schema.define(:version => 20130908210941) do
     t.boolean  "black"
     t.boolean  "asian"
     t.boolean  "multiracial"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "language_id"
+    t.integer  "esol_group_id",              :default => 1
+    t.integer  "grade_id"
   end
 
 end
