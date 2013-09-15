@@ -8,4 +8,11 @@ class Student < ActiveRecord::Base
   belongs_to :language
   belongs_to :esol_group
 
+  def self.search(search)
+    if search
+      where('lastname LIKE ? OR firstname LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

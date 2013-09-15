@@ -1,14 +1,34 @@
 class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
+  helper_method :sort_column, :sort_direction
   def index
-    @students = params[:grade_id].blank? ? Student.all : Student.find_all_by_grade_id(params[:grade_id])
-    @students = params[:esol_group_id].blank? ? @students : Student.find_all_by_esol_group_id(params[:esol_group_id])
+
+    grade_id = params[:grade_id].blank? || params[:grade_id].nil? ? '' : params[:grade_id]
+    esol_code = params[:esol_group_id].blank? || params[:esol_group_id].nil? ? '' : params[:esol_group_id]
+
+
+    if !grade_id.blank?
+      if !esol_code.blank?
+        @students = Student.search(params[:search]).paginate(:per_page => 20, :page => params[:page], :conditions => { :grade_id => params[:grade_id], :esol_group_id => params[:esol_group_id] }).order(sort_column + " " + sort_direction)
+      else
+        @students = Student.search(params[:search]).paginate(:per_page => 20, :page => params[:page], :conditions => { :grade_id => params[:grade_id] }).order(sort_column + " " + sort_direction)
+      end
+    else
+      if !esol_code.blank?
+        @students = Student.search(params[:search]).paginate(:per_page => 20, :page => params[:page], :conditions => { :esol_group_id => params[:esol_group_id] }).order(sort_column + " " + sort_direction)
+      else
+        @students = Student.search(params[:search]).paginate(:per_page => 20, :page => params[:page]).order(sort_column + " " + sort_direction)
+      end
+    end
+
+    @students
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render xml: @students }
       format.json { render json: @students }
+      format.js #index.js.erb
     end
   end
 
@@ -33,6 +53,7 @@ class StudentsController < ApplicationController
     @student = Student.new
     @grades = Grade.all
     @languages = Language.all
+    @esol_groups = EsolGroup.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +66,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @grades = Grade.all
     @languages = Language.all
+    @esol_groups = EsolGroup.all
   end
 
   # POST /students
@@ -89,5 +111,15 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def sort_column
+    Student.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

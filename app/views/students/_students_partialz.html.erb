@@ -1,0 +1,62 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="pretty" border='1'>
+  <tr>
+    <th colspan="10"></th>
+    <th colspan="2">FCAT</th>
+    <th colspan="3">CELLA</th>
+    <th colspan="8"></th>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th style="width: 200px;"><%= sortable "lastname", "Student" %></th>
+    <th><%= sortable "student_number", "Student Number" %></th>
+    <th><%= sortable "grade_id", "Grade" %></th>
+    <th><%= sortable "esol_group_id", "ESOL Group" %></th>
+    <th><%= sortable "language_id", "Language" %></th>
+    <th style="width: 150px;"><%= sortable "entry_date", "Entry Date" %></th>
+    <th><%= sortable "ese_code", "ESE Code" %></th>
+    <th><%= sortable "fcat_reading", "Reading" %></th>
+    <th><%= sortable "fcat_math", "Math" %></th>
+    <th><%= sortable "cella_listening_speaking", "L/S" %></th>
+    <th><%= sortable "cella_reading", "Reading" %></th>
+    <th><%= sortable "cella_writing", "Writing" %></th>
+    <th><%= sortable "student_with_dissability", "SD" %></th>
+    <th><%= sortable "economically_disadvantaged", "ED" %></th>
+    <th><%= sortable "white", "W" %></th>
+    <th><%= sortable "hispanic", "H" %></th>
+    <th><%= sortable "black", "B" %></th>
+    <th><%= sortable "asian", "A" %></th>
+    <th><%= sortable "multiracial", "M" %></th>
+  </tr>
+
+  <% @students.each do |student| %>
+      <tr>
+        <td><%= link_to 'Select', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Del', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= student.lastname + ', ' + student.firstname %></td>
+        <td style="text-align: center"><%= student.student_number %></td>
+        <td style="text-align: center"><%= student.grade.grade_name %></td>
+        <td style="text-align: center"><%= student.esol_group.group_name %></td>
+        <td style="text-align: center"><%= student.language.language_name %></td>
+        <td style="text-align: center"><%= student.entry_date.to_formatted_s(:long) %></td>
+        <td style="text-align: center"><%= student.ese_code %></td>
+        <td style="text-align: center"><%= student.fcat_reading %></td>
+        <td style="text-align: center"><%= student.fcat_math %></td>
+        <td style="text-align: center"><%= student.cella_listening_speaking %></td>
+        <td style="text-align: center"><%= student.cella_reading %></td>
+        <td style="text-align: center"><%= student.cella_writing %></td>
+        <td style="text-align: center"><%= student.student_with_dissability ? "x" : "" %></td>
+        <td style="text-align: center"><%= student.economically_disadvantaged ? "x" : "" %></td>
+        <td style="text-align: center"><%= student.white ? "x" : "" %></td>
+        <td style="text-align: center"><%= student.hispanic ? "x" : "" %></td>
+        <td style="text-align: center"><%= student.black ? "x" : "" %></td>
+        <td style="text-align: center"><%= student.asian ? "x" : "" %></td>
+        <td style="text-align: center"><%= student.multiracial ? "x" : "" %></td>
+      </tr>
+  <% end %>
+</table>
+<%= will_paginate @students %>

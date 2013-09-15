@@ -11,5 +11,7 @@
 class Language < ActiveRecord::Base
   attr_accessible :language_name
 
+  default_scope order('language_name ASC')
+
   has_many :students
 end

@@ -24,12 +24,16 @@
     <%= f.text_field :student_number %>
   </div>
   <div class="field">
+    <%= f.label :esol_group %><br/>
+    <%= f.collection_select :esol_group_id, @esol_groups, :id, :group_name, :prompt => 'Select ESOL Group' %>
+  </div>
+  <div class="field">
     <%= f.label :grade %><br />
-    <%= f.collection_select :grade_id, @grades, :id, :grade_name %>
+    <%= f.collection_select :grade_id, @grades, :id, :grade_name, :prompt => 'Select Grade Level' %>
   </div>
   <div class="field">
     <%= f.label :language %><br />
-    <%= f.collection_select :language_id, @languages, :id, :language_name %>
+    <%= f.collection_select :language_id, @languages, :id, :language_name, :prompt => 'Select Home Language' %>
   </div>
   <div class="field">
     <%= f.label :entry_date %><br />
